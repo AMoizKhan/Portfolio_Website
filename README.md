@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dorbesh Personal Portfolio (Next.js + TypeScript)
 
-## Getting Started
+A clean, modern one-page portfolio built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **MongoDB**. It replicates the structure and feel of the Dorbesh Personal Portfolio template with smooth scrolling, responsive layout, and server-rendered data.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Sections**: Home/Hero, About, Services/Skills, Portfolio, Testimonials, Blog, Contact form
+- **Smooth scroll** and **active nav state** on scroll
+- **MongoDB (Mongoose)** for: Portfolio items, Blog posts, Testimonials, Contact form submissions
+- **API routes**: `/api/contact`, `/api/portfolio`, `/api/blog`, `/api/testimonials`
+- **Server-side data**: Portfolio, blog, and testimonials are fetched on the server for SEO and fast load
+- **Tailwind CSS** only (no Bootstrap); responsive breakpoints and Dorbesh-style spacing/typography
+- **Profile image**: Place your photo in `public/` as **moiz.jpg** or **moiz.png** (used in Hero and About). If missing, a placeholder avatar is shown.
+
+## Project structure
+
+```
+portfolio-dorbesh/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── contact/route.ts   # POST contact → MongoDB
+│   │   │   ├── portfolio/route.ts
+│   │   │   ├── blog/route.ts
+│   │   │   └── testimonials/route.ts
+│   │   ├── layout.tsx             # Global layout, Header, Footer, SEO
+│   │   ├── page.tsx               # Home page (SSR data)
+│   │   └── globals.css
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Hero.tsx
+│   │   ├── HeroImage.tsx          # Hero profile image (fallback)
+│   │   ├── ProfileImage.tsx       # Reusable profile image (fallback)
+│   │   ├── About.tsx
+│   │   ├── Services.tsx
+│   │   ├── PortfolioGrid.tsx
+│   │   ├── Testimonials.tsx
+│   │   ├── BlogSection.tsx
+│   │   └── ContactForm.tsx
+│   ├── lib/
+│   │   └── mongodb.ts             # MongoDB connection singleton
+│   ├── models/
+│   │   ├── Portfolio.ts
+│   │   ├── Blog.ts
+│   │   ├── Testimonial.ts
+│   │   └── Contact.ts
+│   └── services/
+│       ├── portfolio.ts           # Server-side portfolio data
+│       ├── blog.ts
+│       └── testimonials.ts
+├── public/
+│   └── moiz.jpg or moiz.png      # Your profile image (add this)
+├── .env.local                     # MONGODB_URI (create from .env.example)
+├── .env.example
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone / open the project**
+   ```bash
+   cd portfolio-dorbesh
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies** (if not already)
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Environment variables**
+   - Copy `.env.example` to `.env.local`
+   - Set `MONGODB_URI` to your MongoDB connection string (e.g. Atlas).
+   - Example already in `.env.local` for local dev (replace with your own in production).
 
-To learn more about Next.js, take a look at the following resources:
+4. **Profile image**
+   - Add your photo to `public/` as **moiz.jpg** or **moiz.png**. The app uses `moiz.jpg` first; if the file is missing, a placeholder avatar is shown.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Run**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## MongoDB schemas (Mongoose)
 
-## Deploy on Vercel
+- **Portfolio**: `title`, `slug`, `category`, `description`, `image`, `link`, `order`
+- **Blog**: `title`, `slug`, `excerpt`, `content`, `image`, `author`, `publishedAt`
+- **Testimonial**: `name`, `role`, `company`, `content`, `avatar`, `rating`, `order`
+- **Contact**: `name`, `email`, `subject`, `message` (from form submissions)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add documents via MongoDB Atlas/Compass or seed scripts. If collections are empty, the UI shows inline placeholder content for Portfolio, Blog, and Testimonials.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API
+
+| Route              | Method | Description                    |
+|--------------------|--------|--------------------------------|
+| `/api/contact`     | POST   | Save contact form to MongoDB   |
+| `/api/portfolio`   | GET    | List portfolio items            |
+| `/api/blog`        | GET    | List blog posts                |
+| `/api/testimonials`| GET    | List testimonials              |
+
+All APIs return JSON. Contact POST expects: `{ name, email, subject, message }`.
+
+## Build and deploy
+
+```bash
+npm run build
+npm start
+```
+
+Ensure `MONGODB_URI` is set in your deployment environment.
+
+## Screenshots
+
+After adding your `moiz` image and optional MongoDB data, the UI matches the Dorbesh-style layout: hero with profile image, about, services grid, portfolio grid, testimonials, blog cards, and contact form. Take a screenshot of your running site to confirm it matches the original template.
