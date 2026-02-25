@@ -8,7 +8,7 @@ export default function About() {
           <p className="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-2">Get to know me</p>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">About Me</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-cyan-500 mx-auto rounded-full" />
-          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">Professional summary and background</p>
+          {/* <p className="mt-4 text-slate-600 max-w-2xl mx-auto">Professional summary and background</p> */}
         </div>
         <div className="flex flex-col lg:flex-row items-start gap-8 sm:gap-10 lg:gap-12">
           <div className="flex-shrink-0 mx-auto lg:mx-0">
@@ -22,10 +22,10 @@ export default function About() {
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Abdul Moiz Khan</h3>
             <p className="text-slate-600 leading-relaxed mb-4">
-              Innovative Front-end Developer with hands-on experience crafting responsive, high-performance web applications using React.js, Next.js, Node.js, and MongoDB. Adept at transforming designs into seamless user experiences with Tailwind CSS and Material UI, while building robust RESTful APIs and optimizing front-end performance.
+              Innovative Front-end Developer with over a year of hands-on experience building responsive, high-performance web applications using React.js, Next.js, Node.js, and MongoDB. Skilled in transforming complex designs into seamless user experiences with Tailwind CSS and Material UI, while developing scalable RESTful APIs and optimizing performance.
             </p>
             <p className="text-slate-600 leading-relaxed mb-4">
-              Passionate about creating dynamic, user-focused solutions, reducing bugs, and enhancing efficiency through clean, maintainable code. Experienced collaborator in cross-functional teams, delivering projects that combine creativity, functionality, and impact.
+              Passionate about delivering user-focused solutions, reducing bugs, and improving efficiency through clean, maintainable code. Strong collaborator in cross-functional teams, consistently delivering high-quality, impactful projects.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
               <div>
@@ -37,7 +37,7 @@ export default function About() {
                 <p className="text-slate-600 text-sm">Problem-solving · Communication · Adaptability (8+ zero-downtime migrations).</p>
               </div>
             </div>
-            <p className="text-sm text-slate-500 mt-4">Certifications: MERN Stack (Coursera 2022), Python for Data Science (Computer Collegiate 2023).</p>
+            <p className="text-sm text-slate-500 mt-4">Certifications: MERN Stack (Coursera 2022), <br/>Python for Data Science (Computer Collegiate 2023).</p>
           </div>
         </div>
       </div>

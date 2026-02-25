@@ -58,10 +58,10 @@ export default async function HomePage() {
       <About />
       <Experience />
       <Services />
-      <PortfolioGrid items={portfolio} />
+      {/* <PortfolioGrid items={portfolio} /> */}
       <KeyProjects />
-      <Testimonials items={testimonialList} />
-      <BlogSection posts={blog} />
+      {/* <Testimonials items={testimonialList} /> */}
+      {/* <BlogSection posts={blog} /> */}
       <ContactForm />
     </main>
   );

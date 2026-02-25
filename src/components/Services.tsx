@@ -43,7 +43,7 @@ export default function Services() {
                   <div className="flex items-center gap-2 min-w-0 sm:w-44 flex-shrink-0">
                     <span className="w-1 h-8 rounded-full bg-primary-500 flex-shrink-0" />
                     <span className="font-semibold text-slate-900 text-base tracking-tight">
-                      .{group.category}
+                      {group.category}
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-2 pl-0 sm:pl-0">

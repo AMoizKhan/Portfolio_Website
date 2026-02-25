@@ -1,6 +1,6 @@
-# Dorbesh Personal Portfolio (Next.js + TypeScript)
+# Personal Portfolio (Next.js + TypeScript)
 
-A clean, modern one-page portfolio built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **MongoDB**. It replicates the structure and feel of the Dorbesh Personal Portfolio template with smooth scrolling, responsive layout, and server-rendered data.
+A clean, modern one-page portfolio built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **MongoDB**. Smooth scrolling, responsive layout, and server-rendered data.
 
 ## Features
 
@@ -9,13 +9,13 @@ A clean, modern one-page portfolio built with **Next.js**, **TypeScript**, **Tai
 - **MongoDB (Mongoose)** for: Portfolio items, Blog posts, Testimonials, Contact form submissions
 - **API routes**: `/api/contact`, `/api/portfolio`, `/api/blog`, `/api/testimonials`
 - **Server-side data**: Portfolio, blog, and testimonials are fetched on the server for SEO and fast load
-- **Tailwind CSS** only (no Bootstrap); responsive breakpoints and Dorbesh-style spacing/typography
+- **Tailwind CSS** only (no Bootstrap); responsive breakpoints and clean spacing/typography
 - **Profile image**: Place your photo in `public/` as **moiz.jpg** or **moiz.png** (used in Hero and About). If missing, a placeholder avatar is shown.
 
 ## Project structure
 
 ```
-portfolio-dorbesh/
+portfolio/
 ├── src/
 │   ├── app/
 │   │   ├── api/
@@ -60,7 +60,7 @@ portfolio-dorbesh/
 
 1. **Clone / open the project**
    ```bash
-   cd portfolio-dorbesh
+   cd portfolio
    ```
 
 2. **Install dependencies** (if not already)
@@ -113,4 +113,4 @@ Ensure `MONGODB_URI` is set in your deployment environment.
 
 ## Screenshots
 
-After adding your `moiz` image and optional MongoDB data, the UI matches the Dorbesh-style layout: hero with profile image, about, services grid, portfolio grid, testimonials, blog cards, and contact form. Take a screenshot of your running site to confirm it matches the original template.
+After adding your `moiz` image and optional MongoDB data, the UI shows: hero with profile image, about, services grid, portfolio grid, testimonials, blog cards, and contact form. Take a screenshot of your running site to confirm the layout.
