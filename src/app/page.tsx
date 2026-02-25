@@ -11,6 +11,9 @@ import { getPortfolioItems } from "@/services/portfolio";
 import { getBlogPosts } from "@/services/blog";
 import { getTestimonials } from "@/services/testimonials";
 
+// Prevent static generation at build so DB is only used at runtime (fixes Vercel deploy without build-time env)
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const [portfolioItems, blogPosts, testimonials] = await Promise.all([
     getPortfolioItems().catch(() => []),

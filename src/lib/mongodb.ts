@@ -4,10 +4,10 @@
  */
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI as string;
-
-if (!MONGODB_URI) {
-  throw new Error("Please define MONGODB_URI in .env.local");
+function getMongoUri(): string {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) throw new Error("Please define MONGODB_URI in .env.local (or Vercel env vars)");
+  return uri;
 }
 
 interface MongooseCache {
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV !== "production") {
 export async function connectDB(): Promise<typeof mongoose> {
   if (cached.conn) return cached.conn;
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, { bufferCommands: false });
+    cached.promise = mongoose.connect(getMongoUri(), { bufferCommands: false });
   }
   try {
     cached.conn = await cached.promise;
